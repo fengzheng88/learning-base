@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b4055f62-3a01-4afb-a4dd-3ed5ca2b1e44" name="Default Changelist" comment="" />
+    <list default="true" id="b4055f62-3a01-4afb-a4dd-3ed5ca2b1e44" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MeipoHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MyClassLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MyInvocationHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MyProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jarry/proxy/jdk/JDKProxyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jarry/proxy/jdk/JDKProxyTest.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +25,86 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MyClassLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MeipoHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jarry/proxy/jdk/JDKProxyTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+            <state relative-caret-position="336">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MyProxy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jarry/proxy/jdk/MeiPo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/reflect/Proxy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="715" column="10" lean-forward="true" selection-start-line="715" selection-start-column="10" selection-end-line="715" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/reflect/WeakCache.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="99" column="13" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MyInvocationHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="36" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -35,8 +119,14 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>findClass</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -47,7 +137,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jarry/proxy/jdk/Xiaoming.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jarry/proxy/jdk/JDKProxy.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jarry/proxy/jdk/MeiPo.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MyInvocationHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MeipoHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jarry/proxy/jdk/JDKProxyTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MyClassLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MyProxy.java" />
       </list>
     </option>
   </component>
@@ -70,6 +165,7 @@
     <option name="width" value="1382" />
     <option name="height" value="784" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -100,6 +196,32 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="learning-base" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learning-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="proxy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="learning-base" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learning-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="proxy" type="462c0819:PsiDirectoryNode" />
+              <item name="jdk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="learning-base" type="b2602c69:ProjectViewProjectNode" />
+              <item name="learning-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="proxy" type="462c0819:PsiDirectoryNode" />
+              <item name="self" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -109,6 +231,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="D:/git/Git/cmd/git.exe" />
@@ -121,6 +244,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.jarry.proxy.self" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -164,15 +292,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1562653340159</updated>
-      <workItem from="1562653343851" duration="4978000" />
+      <workItem from="1562653343851" duration="12937000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4978000" />
+    <option name="totallyTimeSpent" value="12937000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -189,7 +318,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3287037" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32972136" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -244,41 +373,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/reflect/Proxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="418" column="34" selection-start-line="418" selection-start-column="34" selection-end-line="418" selection-end-column="34" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="153">
+            <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/reflect/WeakCache.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/reflect/InvocationHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="99" column="13" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
+        <state relative-caret-position="242">
+          <caret line="93" column="25" lean-forward="true" selection-start-line="92" selection-start-column="4" selection-end-line="93" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jarry/proxy/jdk/MeiPo.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/ClassLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        <state relative-caret-position="-1887">
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/$Proxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="17" column="52" lean-forward="true" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/reflect/InvocationHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jarry/proxy/jdk/JDKProxyTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-657">
-          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+        <state relative-caret-position="336">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jarry/proxy/jdk/JDKProxyTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MeipoHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        <state relative-caret-position="242">
+          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MyInvocationHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="36" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MyClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jarry/proxy/jdk/MeiPo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/reflect/WeakCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="99" column="13" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/reflect/Proxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="715" column="10" lean-forward="true" selection-start-line="715" selection-start-column="10" selection-end-line="715" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jarry/proxy/self/MyProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
         </state>
       </provider>
     </entry>
