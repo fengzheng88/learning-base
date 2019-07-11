@@ -3,7 +3,6 @@ package com.jarry.proxy.jdk;
 import sun.misc.ProxyGenerator;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -21,15 +20,13 @@ public class JDKProxyTest {
         //被代理对象
         Person proxyPerson = meiPo.getInstance(xiaoming);
         //执行被代理方法
-        proxyPerson.findLove();
+        proxyPerson.findLove("小美");
 
         //获取字节码内容
-       /*
         byte[] $Proxy0s = ProxyGenerator.generateProxyClass("$Proxy0", new Class[]{Person.class});
         FileOutputStream fos = new FileOutputStream(new File("D:/$Proxy.class"));
         fos.write($Proxy0s);
         fos.close();
-        */
 
     }
 }

@@ -7,7 +7,7 @@ package com.jarry.proxy.jdk;
  */
 public class Xiaoming implements Person {
 
-    public void findLove() {
-        System.out.println("小明，我正在寻找真爱");
+    public void findLove(String name) {
+        System.out.println("小明，我正在寻找真爱" + name);
     }
 }

@@ -2,6 +2,7 @@ package com.jarry.proxy.jdk;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.lang.reflect.Proxy;
 
 /**
@@ -36,6 +37,18 @@ public class MeiPo<T> implements InvocationHandler {
         System.out.println("我是媒婆，我这边有个小伙子要找对象");
         //执行被代理对象方法
         method.invoke(target, args);
+
+        Parameter[] parameters = method.getParameters();
+        for(Parameter p : parameters){
+            System.out.println(p.getName());
+            System.out.println(p.getType().getName());
+        }
+
+        Class<?>[] parameterTypes = method.getParameterTypes();
+        for(Class cls: parameterTypes){
+            System.out.println(cls.getName());
+        }
+
 
         System.out.println("找到合适的姑娘");
 
