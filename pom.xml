@@ -7,6 +7,15 @@
     <groupId>com.jarry</groupId>
     <artifactId>learning-base</artifactId>
     <version>1.0</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
