@@ -1,8 +1,6 @@
 package com.jarry.jaxb;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -14,9 +12,7 @@ import javax.xml.bind.annotation.XmlAnyElement;
  *  则将使用相应类的实例填充该字段，否则该元素将被设置为org.w3c.dom的实例
  * @param <T>
  */
-@Getter
-@Setter
-@ToString
+
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Res<T> {
 

@@ -15,28 +15,28 @@ import java.util.List;
 public class Test {
     public static void main(String[] args) {
 
-        HelloRes res = new HelloRes();
-        res.setHeader("213123");
-        HelloAck helloAck = new HelloAck();
-        helloAck.setKey("099989");
-        User user1 = new User();
-        user1.setAge(100);
-        user1.setName("张三");
+//        HelloRes res = new HelloRes();
+//        res.setHeader("213123");
+//        HelloAck helloAck = new HelloAck();
+//        helloAck.setKey("099989");
+//        User user1 = new User();
+//        user1.setAge(100);
+//        user1.setName("张三");
+//
+//        User user2 = new User();
+//        user2.setAge(200);
+//        user2.setName("李四");
+//
+//        List<User> userList = new ArrayList<>();
+//        userList.add(user1);
+//        userList.add(user2);
+//        helloAck.setUsers(userList);
+//
+//        res.setValue(helloAck);
 
-        User user2 = new User();
-        user2.setAge(200);
-        user2.setName("李四");
-
-        List<User> userList = new ArrayList<>();
-        userList.add(user1);
-        userList.add(user2);
-        helloAck.setUsers(userList);
-
-        res.setValue(helloAck);
-
-
-        String s = XMLUtil.convertToXml(res);
-        System.out.println(s);
+//
+//        String s = XMLUtil.convertToXml(res);
+//        System.out.println(s);
 
 //
 //        String xml = "" +
