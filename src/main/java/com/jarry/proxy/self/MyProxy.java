@@ -11,11 +11,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Parameter;
 import java.nio.charset.Charset;
-import java.util.Iterator;
 import java.util.Locale;
 
 /**
@@ -27,21 +28,21 @@ public class MyProxy {
 
     public static void main(String[] args) {
 
-        newInstance(new MyClassLoader(), Xiaoming.class.getInterfaces(), new MeipoHandler());
+        newInstance(new MyClassLoader(MyProxy.class.getResource("").getPath()), Xiaoming.class.getInterfaces(), new MeipoHandler());
     }
 
     static final String ENTER = "\r\n";
 
 
-    public static <T> T newInstance(ClassLoader classLoader, Class[] clazz, MyInvocationHandler h) {
+    public static <T> T newInstance(MyClassLoader classLoader, Class[] clazz, MyInvocationHandler h) {
 
         //1.生成源码
-        String javaSrc = generatorSrc(classLoader, clazz, h);
+        String javaSrc = generatorSrc(clazz, h);
 
 
         //2.将源码输出到.java文件中
         String url = MyProxy.class.getResource("").getPath() + "$Proxy0.java";
-        System.out.println(url);
+        //System.out.println(url);
         File file = new File(url);
 
         FileOutputStream fos = null;
@@ -76,11 +77,31 @@ public class MyProxy {
             manager.close();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            file.delete();
         }
 
         //4.将.class文件动态加载到JVM中
-
+        //在classLoader.findClass("")中实现
         //5.返回被代理对象
+        try {
+            Class proxyObject = classLoader.findClass("$Proxy0");
+
+            Constructor constructor = proxyObject.getConstructor(h.getClass());
+            T o = (T) constructor.newInstance(h);
+
+            return o;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
 
 
         return null;
@@ -89,16 +110,16 @@ public class MyProxy {
     /**
      * 1.生成源码
      *
-     * @param classLoader
+     * @param
      * @param clazz
      * @return
      */
-    private static String generatorSrc(ClassLoader classLoader, Class<?>[] clazz, MyInvocationHandler h) {
+    private static String generatorSrc(Class<?>[] clazz, MyInvocationHandler h) {
         String className = "$Proxy0";
 
         //根据接口生成代理Java类
         StringBuffer sb = new StringBuffer();
-        sb.append(classLoader.getClass().getPackage()).append(";").append(ENTER);
+        sb.append(MyProxy.class.getPackage()).append(";").append(ENTER);
         sb.append(ENTER);
         sb.append("public class " + className).append(" implements ");
         for (int i = 0; i < clazz.length; i++) {
@@ -150,7 +171,7 @@ public class MyProxy {
                 sb.append(") {").append(ENTER);
                 //方法体内容
                 sb.append("try {");
-                sb.append("java.lang.reflect.Method method = ").append(clz.getName()).append(".class").append(".getMethod(").append("\"").append(method.getName())
+                sb.append(Method.class.getName()).append(" method = ").append(clz.getName()).append(".class").append(".getMethod(").append("\"").append(method.getName())
                         .append("\",new Class[]{").append(argsType).append("});").append(ENTER);
                 sb.append("this.h.invoke(this, method, new Object[]{");
                 //参数内容
@@ -167,8 +188,7 @@ public class MyProxy {
 
 
         sb.append("}");
-        System.out.println(sb);
-
+        //System.out.println(sb);
 
         return sb.toString();
     }

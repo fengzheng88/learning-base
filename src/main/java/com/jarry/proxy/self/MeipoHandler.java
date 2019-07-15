@@ -1,7 +1,5 @@
 package com.jarry.proxy.self;
 
-import com.jarry.proxy.jdk.Person;
-
 import java.lang.reflect.Method;
 
 /**
@@ -13,9 +11,9 @@ public class MeipoHandler<T> implements MyInvocationHandler {
 
     private T target;
 
-    public T getInstance(T target){
+    public T getInstance(T target) {
         this.target = target;
-        return MyProxy.newInstance(new MyClassLoader(), target.getClass().getInterfaces(), this);
+        return MyProxy.newInstance(new MyClassLoader(MyProxy.class.getResource("").getPath()), target.getClass().getInterfaces(), this);
     }
 
 
