@@ -17,4 +17,28 @@ public class HelloAck {
 
     @XmlElement(name = "user")
     private List<User> users;
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    @Override
+    public String toString() {
+        return "HelloAck{" +
+                "key='" + key + '\'' +
+                ", users=" + users +
+                '}';
+    }
 }

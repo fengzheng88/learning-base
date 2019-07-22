@@ -1,5 +1,8 @@
 package com.jarry.jaxb;
 
+import com.sun.xml.internal.bind.marshaller.CharacterEscapeHandler;
+import com.sun.xml.internal.bind.marshaller.NoEscapeHandler;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -10,6 +13,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.io.Writer;
 
 public class XMLUtil {
     /**
@@ -27,8 +31,19 @@ public class XMLUtil {
 
             Marshaller marshaller = context.createMarshaller();
             // 格式化xml输出的格式
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,
-                    Boolean.TRUE);
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+            //自定义特殊字符不需要转义
+            marshaller.setProperty(CharacterEscapeHandler.class.getName(),
+                    new CharacterEscapeHandler() {
+                        @Override
+                        public void escape(char[] ac, int i, int j, boolean flag, Writer writer) throws IOException {
+                            writer.write(ac, i, j);
+                        }
+                    });
+            //使用自带特殊字符不需要转义
+            //marshaller.setProperty(CharacterEscapeHandler.class.getName(), new NoEscapeHandler());
+
             // 将对象转换成输出流形式的xml
             marshaller.marshal(obj, sw);
         } catch (JAXBException e) {
@@ -70,14 +85,14 @@ public class XMLUtil {
     /**
      * 将String类型的xml转换成对象
      */
-    public static <T>T convertXmlStrToObject(Class<?> clazz, String xmlStr) {
+    public static <T> T convertXmlStrToObject(Class<?> clazz, String xmlStr) {
         T xmlObject = null;
         try {
             JAXBContext context = JAXBContext.newInstance(clazz);
             // 进行将Xml转成对象的核心接口
             Unmarshaller unmarshaller = context.createUnmarshaller();
             StringReader sr = new StringReader(xmlStr);
-            xmlObject = (T)unmarshaller.unmarshal(sr);
+            xmlObject = (T) unmarshaller.unmarshal(sr);
         } catch (JAXBException e) {
             e.printStackTrace();
         }

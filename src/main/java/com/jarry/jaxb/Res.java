@@ -24,4 +24,29 @@ public class Res<T> {
      */
     @XmlAnyElement(lax = true)
     private T value;
+
+
+    public String getHeader() {
+        return header;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
+
+    public T getValue() {
+        return value;
+    }
+
+    public void setValue(T value) {
+        this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "Res{" +
+                "header='" + header + '\'' +
+                ", value=" + value +
+                '}';
+    }
 }
