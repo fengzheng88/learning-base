@@ -33,6 +33,15 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                    <!--
+                        在使用com.sun包时，maven编译打包时会出现com.sun包下的文件找不到，导致编译错误
+                        添加如下配置来忽略该错误
+
+                        <compilerArgs>
+						    <arg>-XDignore.symbol.file</arg>
+						</compilerArgs>
+						<fork>true</fork>
+                    -->
                 </configuration>
             </plugin>
         </plugins>
