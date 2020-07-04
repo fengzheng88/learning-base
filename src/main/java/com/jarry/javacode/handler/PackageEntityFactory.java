@@ -1,9 +1,12 @@
 package com.jarry.javacode.handler;
 
+import javassist.CannotCompileException;
 import javassist.ClassPool;
 import javassist.CtClass;
 import javassist.CtConstructor;
 import javassist.CtMethod;
+import javassist.CtNewMethod;
+import javassist.NotFoundException;
 
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
@@ -75,11 +78,93 @@ public class PackageEntityFactory {
 
         //创建函数代码字符串，即重写父类的方法,手动拼接
         final StringBuilder sb = new StringBuilder();
+
+        //创建方法一
+        CtMethod ctMethod = createMethod1(sb, target, source, implCtClass);
+
+        //创建方法二
+        //CtMethod ctMethod = createMethod2(sb, target, source, implCtClass, pool);
+
+        //添加方法
+        implCtClass.addMethod(ctMethod);
+
+
+        //输出字节码文件查看是否合理
+        implCtClass.writeFile("E:\\");
+
+        //获取实例字节码文件
+        Class<?> helperClass = implCtClass.toClass();
+        //生成实例对象
+        helper = (AbstractPackageHelper) helperClass.newInstance();
+
+        HELPER_MAP.putIfAbsent(target, helper);
+
+        return helper;
+    }
+
+
+    /**
+     * 完全手动拼接方法
+     *
+     * @param sb
+     * @param target
+     * @param source
+     * @param implCtClass
+     * @return
+     * @throws NoSuchFieldException
+     * @throws CannotCompileException
+     */
+    public static CtMethod createMethod1(StringBuilder sb, Class target, Class source, CtClass implCtClass) throws NoSuchFieldException, CannotCompileException {
         sb.append("public Object createT(Object target, Object source){ \n");
-        //由于不支持泛型，只能在方法里面对对象进行强转
         sb.append(target.getName()).append(" t = (").append(target.getName()).append(")target; \n");
         sb.append(source.getName()).append(" s = (").append(source.getName()).append(")source; \n");
 
+        commonBody(sb, target, source);
+        //参数1：方法字符串  参数2：实例类对象
+        CtMethod cm = CtMethod.make(sb.toString(), implCtClass);
+        return cm;
+    }
+
+    /**
+     * 部分手动拼接方法
+     *
+     * @param sb
+     * @param target
+     * @param source
+     * @param implCtClass
+     * @param pool
+     * @return
+     * @throws NoSuchFieldException
+     * @throws CannotCompileException
+     * @throws NotFoundException
+     */
+    public static CtMethod createMethod2(StringBuilder sb, Class target, Class source, CtClass implCtClass, ClassPool pool) throws NoSuchFieldException, CannotCompileException, NotFoundException {
+        //从类池中获取已经存在的Object字节码对象
+        CtClass returnType = pool.get("java.lang.Object");
+        //由于参数都是Object
+        CtClass[] parameter = new CtClass[]{returnType, returnType};
+
+        sb.append("{ \n");
+        //由于参数名未指定，所以只能用$1、$2等代替参数别名
+        sb.append(target.getName()).append(" t = (").append(target.getName()).append(")$1; \n");
+        sb.append(source.getName()).append(" s = (").append(source.getName()).append(")$2; \n");
+
+        commonBody(sb, target, source);
+
+        CtMethod ctMethod = CtNewMethod.make(returnType, "createT", parameter, null, sb.toString(), implCtClass);
+
+        return ctMethod;
+    }
+
+    /**
+     * 公共方法体拼接方法
+     *
+     * @param sb
+     * @param target
+     * @param source
+     * @throws NoSuchFieldException
+     */
+    public static void commonBody(StringBuilder sb, Class target, Class source) throws NoSuchFieldException {
         //通过反射获取来源类字段属性，并拼接get/set字符串
         Field[] fArr = source.getDeclaredFields();
         for (Field f : fArr) {
@@ -127,20 +212,5 @@ public class PackageEntityFactory {
 
         sb.append("return t;");
         sb.append(" } ");
-
-        //将拼接的字符串转成方法
-        //参数1：方法字符串  参数2：实例类对象
-        CtMethod cm = CtMethod.make(sb.toString(), implCtClass);
-        //添加方法
-        implCtClass.addMethod(cm);
-
-        //获取实例字节码文件
-        Class<?> helperClass = implCtClass.toClass();
-        //生成实例对象
-        helper = (AbstractPackageHelper) helperClass.newInstance();
-
-        HELPER_MAP.putIfAbsent(target, helper);
-
-        return helper;
     }
 }
