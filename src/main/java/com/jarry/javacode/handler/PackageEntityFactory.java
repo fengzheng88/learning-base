@@ -1,6 +1,7 @@
 package com.jarry.javacode.handler;
 
 import javassist.CannotCompileException;
+import javassist.ClassClassPath;
 import javassist.ClassPool;
 import javassist.CtClass;
 import javassist.CtConstructor;
@@ -48,6 +49,12 @@ public class PackageEntityFactory {
 
         //获取类池
         ClassPool pool = ClassPool.getDefault();
+
+        //在web服务器时需要添加classpath路径，否则会报javassist.NotFoundException
+        //官网描述：The default ClassPool returned by a static method ClassPool.getDefault() searches the same path that the underlying JVM (Java virtual machine) has. If a program is running on a web application server such as JBoss and Tomcat, the ClassPoolobject may not be able to find user classes since such a web application server uses multiple class loaders as well as the system class loader. In that case, an additional class path must be registered to the ClassPool.
+        ClassClassPath classPath = new ClassClassPath(PackageEntityFactory.class);
+        pool.insertClassPath(classPath);
+
         pool.appendSystemPath();
 
         //导入相关类,这边可以不用写，只要生成的代码都使用相对路径(带包名)即ok(ps:也就是不使用xxx.getSimpleName())
